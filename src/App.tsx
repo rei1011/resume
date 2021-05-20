@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          rei Resume
+          rei Resume_2
         </a>
       </header>
     </div>
