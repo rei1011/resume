@@ -1,0 +1,32 @@
+{
+  "works": [
+    { 
+      "start": "Apr 2019",
+      "end": "",
+      "overview": "Joined Simplex Inc.",
+      "position": "New Employee",
+      "description": "During the first four months of my employment, I received training on the mathematics required for credit transactions and the skills required for server-side development."
+    },
+    { 
+      "start": "Aug 2019",
+      "end": "Mar. 2020",
+      "overview": "Enhancement of an FX application",
+      "position": "Backend Engineer",
+      "description": "I was involved in the operation, maintenance, and enhancement of the server side, including data integration between internal systems and BaaS."
+    },
+    { 
+      "start": "Feb 2020",
+      "end": "progress",
+      "overview": "UIUX improvement for FX application",
+      "position": "Frontend Engineer → Frontend Lead",
+      "description": "Initially, I joined as a member of the UIUX team, and after 4 months, I took the lead position. In order to improve the UIUX of the existing app, I am implementing development, testing, and release in a design sprint format."
+    },
+    { 
+      "start": "Mar 2021",
+      "end": "progress",
+      "overview": "Introduction of new FX applications",
+      "position": "Frontend Engineer",
+      "description": "As a member of the new FX application implementation team, I am involved in front-end development, and am mainly considering on architecture and technology selection without relying on the backend."
+    }
+  ]
+}
