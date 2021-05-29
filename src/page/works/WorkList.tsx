@@ -3,11 +3,11 @@ import WorkRow from './WorkRow';
 import Works, {work, workJson } from './Works';
 
 
-export type setWorkIndex = (workIndex: number) => void
+export type setWorkIndex = (workIndex: number) => void | null
 type workListProp = {
   works: work[]
   workIndex: number
-  setWorkIndex: setWorkIndex
+  changeWorkIndex: setWorkIndex
 }
 
 
@@ -15,18 +15,19 @@ const WorkList = (props: workListProp) => {
   const list: any[] = [];
   props.works.forEach((work, index) => {
     const active =  props.workIndex === index ? "active" : "";
+    // TODO 一定時間クリックできない処理を加える
     list.push(
       <WorkRow key={work.overview} 
                work={work} 
                active={active} 
                index={index} 
-               setWorkIndex={props.setWorkIndex}/>
+               setWorkIndex={props.changeWorkIndex}/>
     )
   })
 
   return (
-    <div className="work-list fit">
-      <ul className="flex fit column space-between">
+    <div className="work-list border-right">
+      <ul className="flex fit column space-around">
         {list}
       </ul>
     </div>

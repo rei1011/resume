@@ -3,47 +3,65 @@ import { work, workJson } from './Works';
 
 
 type workDetailProp = {
-  work: work
+  works: work[]
+  workIndex: number
 }
-// worklistを押下したxx ms秒後にworkindexを変換する関数を作成する
-
 const WorkDetail = (props: workDetailProp) => {
-  const {position, description} = props.work;
+  const list = createList(props.works);
   return (
     <div className="work-detail fit flex column space-around">
-      <div>
-        <div>
-          Position
-        </div>
-        <div className="font-size-l">
-          {position}
-        </div>
-      </div>
-      <div>
-        <div>
-          Job Description
-        </div>
-        <div className="font-size-l">
-          {description}
-        </div>
-      </div>
+      {list[props.workIndex].position}
+      {list[props.workIndex].description}
     </div>
-  );
+  )
 }
 export default WorkDetail;
 
 
-const WorkDetailTemplate = () => {
+const createList = (works: work[]) => {
+  const list: any[] = [];
+  works.forEach(work => {
+    list.push(
+      {
+        position: <Position position={work.position}/>,
+        description: <Description description={work.description}/>
+      }
+    )
+  })
+
+  return list;
+}
+
+
+type positionProp = {
+  position: string;
+}
+const Position = (props: positionProp) => {
   return (
-    <>
-    </>
+    <div>
+      <div>
+        Position
+      </div>
+      <div className="font-size-l">
+        {props.position}
+      </div>
+    </div>
   )
 }
 
-export const getWorkDetail = () => {
+
+type descriptionProp = {
+  description: string;
+}
+const Description = (props: descriptionProp) => {
   return (
-    <>
-    </>
+    <div>
+      <div>
+        Job Description
+      </div>
+      <div className="font-size-l">
+        {props.description}
+      </div>
+    </div>
   )
 }
-
