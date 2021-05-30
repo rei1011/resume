@@ -4,6 +4,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  useHistory,
+  withRouter
 } from 'react-router-dom';
 import Home from './page/home/Home';
 import Works from './page/works/Works';
@@ -12,12 +14,12 @@ import Contact from './page/contact/Contact';
 import Header from './common/Header';
 
 
-export default function App() {
-  const [page, setPage] = useState("home");
+const App = () => {
+  const [currentPage, setCurrentPage] = useState("home");
   return (
-    <div className="padding_global fit">
+    <div className={`padding_global fit`}>
       <Router>
-        <Header onChangePage={(page:string) => setPage(page)} />
+        <Header onChangePage={(page:string) => setCurrentPage(page)} />
         <Switch>
           <Route path="/resume" exact>
             <Home />
@@ -37,9 +39,6 @@ export default function App() {
   );
 }
 
-export const pageInfo:any = {
-  home: "HOME",
-  works: "WORKS",
-  skills: "SKILLS",
-  contact: "CONTACT",
-}
+export default App;
+
+export const pageInfo = ["home","works","skills","contact"];

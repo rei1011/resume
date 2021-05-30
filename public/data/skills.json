@@ -1,0 +1,6 @@
+{
+  "frontend": ["React","MobX","Cordova","TypeScript","JavaScript","webpack","HTML","Sass","Google Tag Manager","Google Analytics","SMC"],
+  "design": ["OOUI","HIG","Material Design","AdobeXD","Figma"],
+  "backend": ["Java","OracleSQL","Firebase"],
+  "others": ["Git","Slack"]
+}

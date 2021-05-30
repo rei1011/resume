@@ -1,12 +1,13 @@
 import React from 'react';
 import WorkRow from './WorkRow';
-import Works, {work, workJson } from './Works';
+import {work, workJson } from './Works';
 
 
 export type setWorkIndex = (workIndex: number) => void | null
 type workListProp = {
   works: work[]
   workIndex: number
+  typeOfChange: string
   changeWorkIndex: setWorkIndex
 }
 
@@ -14,7 +15,7 @@ type workListProp = {
 const WorkList = (props: workListProp) => {
   const list: any[] = [];
   props.works.forEach((work, index) => {
-    const active =  props.workIndex === index ? "active" : "";
+    const active =  props.workIndex === index ? "item-active" : "";
     // TODO 一定時間クリックできない処理を加える
     list.push(
       <WorkRow key={work.overview} 

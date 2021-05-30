@@ -37,5 +37,8 @@ const getTerm = (start: string, end: string | null) => {
   if(!end) {
     return start;
   }
+  if(end === "progress"){
+    return `${start} - `;  
+  }
   return `${start} - ${end}`;
 }
