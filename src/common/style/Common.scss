@@ -64,12 +64,28 @@
     flex-direction: column;
   }
 
+  &.flex-wrap-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.justify-content-start {
+    justify-content: flex-start
+  }
+
   &.space-between {
     justify-content: space-between; 
   }
 
   &.space-around {
     justify-content: space-around; 
+  }
+
+  &.justify-content-center {
+    justify-content: center;
+  }
+
+  &.align-items-center {
+    align-items: center;
   }
 }
 
@@ -79,5 +95,9 @@
 }
 
 .contents-wrapper {
-  padding: 15vh 5vw 15vh 5vw 
+  max-height: 1050px;
+  max-width:  1680px;
+  min-height: 720px;
+  min-width:  1280px;
+  padding: 15vh 5vw 15vh 5vw;
 }

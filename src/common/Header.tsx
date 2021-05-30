@@ -39,7 +39,7 @@ const getPageName = (pathName: string) => {
     return "HOME";
   }
 
-  return pageInfo[pathName]
+  return pathName.toUpperCase()
 }
 
 const Author = () => {

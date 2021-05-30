@@ -1,8 +1,24 @@
 import React from 'react';
+import SkillCard from './SkillCard';
+import { skillsJson } from './Skills';
 
-export default function SkillSet() {
+
+export type skillSetProps = {
+  skills: string[]
+}
+
+
+export default function SkillSet(props: skillSetProps) {
+  const list: any[] = [];
+  props.skills.forEach(skill => {
+      list.push(
+        <SkillCard skill={skill} />
+      )
+    }
+  )
   return (
-    <div>
+    <div className="flex flex-wrap-wrap justify-content-start">
+      {list}
     </div>
   );
 }

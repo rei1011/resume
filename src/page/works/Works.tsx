@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ContentsWrapper from '../../common/ContentsWrapper';
 import WorkDetail from './WorkDetail';
 import WorkList from './WorkList';
-import throttle from "lodash/throttle";
 
 
 export type work = {
@@ -20,35 +19,39 @@ let workJson: workJson
 
 const Works = () => {
   const [workIndex, setWorkIndex] = useState(0);
-  const [isFadeOut, setIsFadeOut] = useState(false);
-  const [isFadeIn, setIsFadeIn] = useState(false);
   const [typeOfChange, setTypeOfChange] = useState("");
+  const [directionOfChange, setDirectionOfChange] = useState("");
   const changeWorkIndex = (index: number) => {
-    setIsFadeOut(true);
+
+    //クリックの間引き処理
+    if(typeOfChange) return;
+
+    if(workIndex === index) return;
+
+    setTypeOfChange("fade-out");
     if(workIndex < index) {
-      setTypeOfChange("top-to-bottom");
+      setDirectionOfChange("top-to-bottom");
     } else if (workIndex > index) {
-      setTypeOfChange("bottom-to-top");
+      setDirectionOfChange("bottom-to-top");
     }
     setTimeout(
       () => {
         setWorkIndex(index);
-        setIsFadeOut(false);
-        setIsFadeIn(true);
+        setTypeOfChange("fade-in");
         setTimeout(() => {
-          setIsFadeIn(false);
           setTypeOfChange("");
-        }, 400);
-      },
-      400);
+          setDirectionOfChange("");
+        }, 180);
+      },180);
   };
   
 
   return (
     <ContentsWrapper>
-      <div className={getClassName(isFadeOut, isFadeIn, typeOfChange)}>  
-        <WorkList works={workJson.works} 
-                  workIndex={workIndex} 
+      <div className={getClassName(typeOfChange, directionOfChange)}>  
+        <WorkList works={workJson.works}
+                  workIndex={workIndex}
+                  typeOfChange={typeOfChange}
                   changeWorkIndex={changeWorkIndex}/>
         <WorkDetail works={workJson.works} 
                     workIndex={workIndex} />
@@ -68,14 +71,7 @@ export const getWorksData = () => {
 }
 
 
-const getClassName = (isFadeOut: boolean, isFadeIn: boolean, typeOfChange: string) => {
-  const classNameList = ["works-wrapper", "flex", "fit", `${typeOfChange}`];
-  if(isFadeOut) {
-    classNameList.push("fade-out");
-  }
-  if(isFadeIn) {
-    classNameList.push("fade-in");
-  }
-
+const getClassName = (typeOfChange: string, directionOfChange: string) => {
+  const classNameList = ["works-wrapper", "flex", "fit", `${directionOfChange}`, `${typeOfChange}`];
   return classNameList.join(" ");
 }

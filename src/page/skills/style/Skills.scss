@@ -1,0 +1,28 @@
+.skills {
+
+  .skill-sec {
+    margin: 50px 0 50px 0;
+
+    &:first-child {
+      margin: 0 0 50px 0;
+    }
+  }
+
+  .sec-title {
+    margin-bottom: 12px;
+  }
+
+  .skill-card-wrapper {
+    margin: 0.6vh 2vw 0.6vh 0;
+
+    .skill-card {
+      width: 14vw;
+      min-width: 200px;
+      max-width:  300px;
+      height: 4vh;
+      min-height: 40px;
+      border: solid 1px #2D2A1D;
+      border-radius:  4px;
+    }
+  }
+}

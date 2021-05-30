@@ -2,6 +2,28 @@
   .work-list {
     width: 50%;
     padding-right: 7vw;
+    color: #C4C4C4;
+
+      .term {
+        font-size: 14px;
+      }
+      .overview {
+        font-size: 21px;
+      }
+
+    .item-active {
+      color: #2D2A1D;
+      .term {
+        font-size: 16px;
+      }
+      .overview {
+        font-size: 24px;
+      }
+    }
+
+    .work_row-wrapper {
+      height: 64px;
+    }
   }
 
   .work-detail {
@@ -62,31 +84,96 @@
     }
   }
 
+  @keyframes animation-term-expansion {
+    0% { 
+      font-size: 14px;
+      color: #C4C4C4;
+    }
+    100% { 
+      font-size: 16px;
+      color: #2D2A1D;
+    }
+  }
+
+  @keyframes animation-term-reduction {
+    0% {
+      font-size: 16px;
+      color: #2D2A1D;
+    }
+    100% {
+      font-size: 14px;
+      color: #C4C4C4;
+    }
+  }
+
+  @keyframes animation-overview-expansion {
+    0% { 
+      font-size: 21px;
+      color: #C4C4C4;
+    }
+    100% { 
+      font-size: 24px;
+      color: #2D2A1D;
+    }
+  }
+
+  @keyframes animation-overview-reduction {
+    0% {
+      font-size: 24px;
+      color: #2D2A1D;
+    }
+    100% {
+      font-size: 21px;
+      color: #C4C4C4;
+    }
+  }
+
   &.fade-in {
     &.bottom-to-top {
       .work-detail {
-        animation: animation-fade-in-bottom-to-top 400ms ease-out forwards;
+        animation: animation-fade-in-bottom-to-top 180ms ease-out forwards;
       }
     }
 
     &.top-to-bottom {
       .work-detail {
-        animation: animation-fade-in-top-to-bottom 400ms ease-out forwards;
+        animation: animation-fade-in-top-to-bottom 180ms ease-out forwards;
       }
     }
 
+    .item-active {
+      .work_row-wrapper {
+        .term {
+          animation: animation-term-expansion 180ms ease-out forwards;
+        }
+        .overview {
+          animation: animation-overview-expansion 180ms ease-out forwards;
+        }
+      }
+    }
   }
 
   &.fade-out {
     &.bottom-to-top {
       .work-detail {
-        animation: animation-fade-out-bottom-to-top 400ms ease-in forwards;
+        animation: animation-fade-out-bottom-to-top 180ms ease-in forwards;
       }
     }
 
     &.top-to-bottom {
       .work-detail {
-        animation: animation-fade-out-top-to-bottom 400ms ease-in forwards;
+        animation: animation-fade-out-top-to-bottom 180ms ease-in forwards;
+      }
+    }
+
+    .item-active {
+      .work_row-wrapper {
+        .term {
+          animation: animation-term-reduction 180ms ease-in forwards;
+        }
+        .overview {
+          animation: animation-overview-reduction 180ms ease-in forwards;
+        }
       }
     }
   }
