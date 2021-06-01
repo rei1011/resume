@@ -23,6 +23,7 @@
 
     .work_row-wrapper {
       height: 64px;
+      cursor: pointer;
     }
   }
 
@@ -40,7 +41,7 @@
     // border-color: #C4C4C4;
   }
 
-  @keyframes animation-fade-in-bottom-to-top {
+  @keyframes animation-fade-in-work-bottom-to-top {
     0% {
       transform: translateY(-5%);
       opacity: 0;
@@ -51,7 +52,7 @@
     }
   }
 
-  @keyframes animation-fade-out-bottom-to-top {
+  @keyframes animation-fade-out-work-bottom-to-top {
     0% {
       transform: translateY(0%);
       opacity: 100;
@@ -62,7 +63,7 @@
     }
   }
 
-  @keyframes animation-fade-in-top-to-bottom {
+  @keyframes animation-fade-in-work-top-to-bottom {
     0% { 
       transform: translateY(5%); 
       opacity: 0;
@@ -73,7 +74,7 @@
     }
   }
 
-  @keyframes animation-fade-out-top-to-bottom {
+  @keyframes animation-fade-out-work-top-to-bottom {
     0% {
       transform: translateY(0%);
       opacity: 100;
@@ -128,16 +129,16 @@
     }
   }
 
-  &.fade-in {
+  &.fade-in-work {
     &.bottom-to-top {
       .work-detail {
-        animation: animation-fade-in-bottom-to-top 180ms ease-out forwards;
+        animation: animation-fade-in-work-bottom-to-top 180ms ease-out forwards;
       }
     }
 
     &.top-to-bottom {
       .work-detail {
-        animation: animation-fade-in-top-to-bottom 180ms ease-out forwards;
+        animation: animation-fade-in-work-top-to-bottom 180ms ease-out forwards;
       }
     }
 
@@ -153,16 +154,16 @@
     }
   }
 
-  &.fade-out {
+  &.fade-out-work {
     &.bottom-to-top {
       .work-detail {
-        animation: animation-fade-out-bottom-to-top 180ms ease-in forwards;
+        animation: animation-fade-out-work-bottom-to-top 180ms ease-in forwards;
       }
     }
 
     &.top-to-bottom {
       .work-detail {
-        animation: animation-fade-out-top-to-bottom 180ms ease-in forwards;
+        animation: animation-fade-out-work-top-to-bottom 180ms ease-in forwards;
       }
     }
 

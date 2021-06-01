@@ -1,18 +1,22 @@
 import React from 'react';
 import ContentsWrapper from '../../common/ContentsWrapper';
+import Link from '../../common/Link';
 
 export default function Contact() {
   return (
     <ContentsWrapper className="contact flex">
-      <div className="item">
+      <Link link="mailto:r.mizobuchi3@gmail.com">
         Email
-      </div>
-      <div className="item">
+      </Link>
+      <Link link="https://github.com/rei1011" >
         Github
-      </div>
-      <div className="item">
+      </Link>
+      <Link link="https://www.linkedin.com/in/%E5%B6%BA-%E6%BA%9D%E6%B8%95-27649a180">
         Linked In
-      </div>
+      </Link>
+      <Link link="https://www.facebook.com/rei.mizobuchi.9">
+        facebook
+      </Link>
     </ContentsWrapper>
   );
 }

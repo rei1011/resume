@@ -11,36 +11,36 @@ export type work = {
   "position": string
   "description": string
 }
-export type workJson = {
+export type workJsonType = {
   "works": work[]
 }
-let workJson: workJson
+let workJson: workJsonType
 
 
 const Works = () => {
   const [workIndex, setWorkIndex] = useState(0);
-  const [typeOfChange, setTypeOfChange] = useState("");
-  const [directionOfChange, setDirectionOfChange] = useState("");
+  const [typeOfChangeInWork, setTypeOfChangeInWork] = useState("");
+  const [directionOfChange, setDirectionOfChangeInWork] = useState("");
   const changeWorkIndex = (index: number) => {
 
     //クリックの間引き処理
-    if(typeOfChange) return;
+    if(typeOfChangeInWork) return;
 
     if(workIndex === index) return;
 
-    setTypeOfChange("fade-out");
+    setTypeOfChangeInWork("fade-out-work");
     if(workIndex < index) {
-      setDirectionOfChange("top-to-bottom");
+      setDirectionOfChangeInWork("top-to-bottom");
     } else if (workIndex > index) {
-      setDirectionOfChange("bottom-to-top");
+      setDirectionOfChangeInWork("bottom-to-top");
     }
     setTimeout(
       () => {
         setWorkIndex(index);
-        setTypeOfChange("fade-in");
+        setTypeOfChangeInWork("fade-in-work");
         setTimeout(() => {
-          setTypeOfChange("");
-          setDirectionOfChange("");
+          setTypeOfChangeInWork("");
+          setDirectionOfChangeInWork("");
         }, 180);
       },180);
   };
@@ -48,10 +48,10 @@ const Works = () => {
 
   return (
     <ContentsWrapper>
-      <div className={getClassName(typeOfChange, directionOfChange)}>  
+      <div className={getClassName(typeOfChangeInWork, directionOfChange)}>  
         <WorkList works={workJson.works}
                   workIndex={workIndex}
-                  typeOfChange={typeOfChange}
+                  typeOfChangeInWork={typeOfChangeInWork}
                   changeWorkIndex={changeWorkIndex}/>
         <WorkDetail works={workJson.works} 
                     workIndex={workIndex} />
@@ -71,7 +71,7 @@ export const getWorksData = () => {
 }
 
 
-const getClassName = (typeOfChange: string, directionOfChange: string) => {
-  const classNameList = ["works-wrapper", "flex", "fit", `${directionOfChange}`, `${typeOfChange}`];
+const getClassName = (typeOfChangeInWork: string, directionOfChange: string) => {
+  const classNameList = ["works-wrapper", "flex", "fit", `${directionOfChange}`, `${typeOfChangeInWork}`];
   return classNameList.join(" ");
 }

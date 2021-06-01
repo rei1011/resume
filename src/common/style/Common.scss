@@ -26,7 +26,7 @@
   .page-current-wrapper {
     position: absolute;
     top: -30px;
-    right: 0;
+    right: 16px;
     pointer-events: none;
   
     .path-name {
@@ -101,3 +101,76 @@
   min-width:  1280px;
   padding: 15vh 5vw 15vh 5vw;
 }
+
+@keyframes animation-fade-in-bottom-to-top {
+  0% {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 100;
+  }
+}
+
+@keyframes animation-fade-out-bottom-to-top {
+  0% {
+    transform: translateY(0%);
+    opacity: 100;
+  }
+  100% {
+    transform: translateY(5%);
+    opacity: 0;
+  }
+}
+
+@keyframes animation-fade-in-top-to-bottom {
+  0% { 
+    transform: translateY(5%); 
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0%);
+    opacity: 100;
+  }
+}
+
+@keyframes animation-fade-out-top-to-bottom {
+  0% {
+    transform: translateY(0%);
+    opacity: 100;
+  }
+  100% {
+    transform: translateY(-5%);
+    opacity:0;
+  }
+}
+
+.fade-in {
+  &.bottom-to-top {
+    .header .path-name, .contents-wrapper {
+      animation: animation-fade-in-bottom-to-top 180ms ease-out forwards;
+    }
+  }
+
+  &.top-to-bottom {
+    .header .path-name,.contents-wrapper {
+      animation: animation-fade-in-top-to-bottom 180ms ease-out forwards;
+    }
+  }
+}
+
+.fade-out {
+  &.bottom-to-top {
+    .header .path-name,.contents-wrapper {
+      animation: animation-fade-out-bottom-to-top 180ms ease-in forwards;
+    }
+  }
+
+  &.top-to-bottom {
+    .header .path-name,.contents-wrapper {
+      animation: animation-fade-out-top-to-bottom 180ms ease-in forwards;
+    }
+  }
+}
+
