@@ -2,20 +2,15 @@ import React from 'react';
 import {
   useLocation,
 } from 'react-router-dom';
-import { pageInfo } from '../App';
 import GlobalMenu from './GlobalMenu';
 
-export type onChangePage = (page: string) => void;
-export type headerProps = {
-  onChangePage: onChangePage;
-}
-const Header = (props: headerProps) => {
+const Header = () => {
   return (
     <div className="header flex">
       <Author />
       <div className="menu" >
         <CurrentPage />
-        <GlobalMenu onChangePage={props.onChangePage}/>
+        <GlobalMenu />
       </div>
     </div>
   );

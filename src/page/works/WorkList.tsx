@@ -1,13 +1,13 @@
 import React from 'react';
 import WorkRow from './WorkRow';
-import {work, workJson } from './Works';
+import { work } from './Works';
 
 
 export type setWorkIndex = (workIndex: number) => void | null
 type workListProp = {
   works: work[]
   workIndex: number
-  typeOfChange: string
+  typeOfChangeInWork: string
   changeWorkIndex: setWorkIndex
 }
 

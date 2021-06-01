@@ -1,5 +1,5 @@
 import React from 'react';
-import { work, workJson } from './Works';
+import { work } from './Works';
 
 
 type workDetailProp = {

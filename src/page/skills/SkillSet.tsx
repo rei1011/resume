@@ -1,6 +1,5 @@
 import React from 'react';
 import SkillCard from './SkillCard';
-import { skillsJson } from './Skills';
 
 
 export type skillSetProps = {
@@ -12,7 +11,7 @@ export default function SkillSet(props: skillSetProps) {
   const list: any[] = [];
   props.skills.forEach(skill => {
       list.push(
-        <SkillCard skill={skill} />
+        <SkillCard key={skill} skill={skill} />
       )
     }
   )

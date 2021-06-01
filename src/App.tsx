@@ -4,8 +4,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  useHistory,
-  withRouter
 } from 'react-router-dom';
 import Home from './page/home/Home';
 import Works from './page/works/Works';
@@ -14,12 +12,32 @@ import Contact from './page/contact/Contact';
 import Header from './common/Header';
 
 
+type AppContextType = {
+  currentPage: string;
+  setCurrentPage: React.Dispatch<string>;
+  typeOfChange: string;
+  setTypeOfChange: React.Dispatch<string>;
+  directionOfChange: string;
+  setDirectionOfChange: React.Dispatch<string>;
+};
+
+
+export const AppContext = React.createContext({} as AppContextType);
+export const pageInfo = ["home","works","skills","contact"];
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
+  const [typeOfChange, setTypeOfChange] = useState("");
+  const [directionOfChange, setDirectionOfChange] = useState("");
   return (
-    <div className={`padding_global fit`}>
+    <div className={`app padding_global fit ${typeOfChange} ${directionOfChange}`}>
       <Router>
-        <Header onChangePage={(page:string) => setCurrentPage(page)} />
+      <AppContext.Provider value={{currentPage, 
+                                  setCurrentPage,
+                                  typeOfChange,
+                                  setTypeOfChange,
+                                  directionOfChange,
+                                  setDirectionOfChange}}>
+        <Header />
         <Switch>
           <Route path="/resume" exact>
             <Home />
@@ -34,11 +52,9 @@ const App = () => {
             <Contact />
           </Route>
         </Switch>
+        </AppContext.Provider>
       </Router>
     </div>
   );
 }
-
 export default App;
-
-export const pageInfo = ["home","works","skills","contact"];

@@ -3,13 +3,13 @@ import ContentsWrapper from '../../common/ContentsWrapper';
 import SkillSet from './SkillSet';
 
 
-export type skillsJson = {
+export type skillsJsonType = {
   "frontend": string[]
   "design": string[]
   "backend": string[]
   "others": string[]
 }
-let skillsJson: skillsJson
+let skillsJson: skillsJsonType
 
 
 export default function Skills() {
